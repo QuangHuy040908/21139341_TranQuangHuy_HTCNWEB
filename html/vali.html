@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vali Du Lịch - Aalis</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <div class="container mt-4">
+        <h1 class="page-title">Vali Du Lịch</h1>
+
+        <div class="row">
+            <!-- Product 1 (Suitcase 1): Vali kéo Modus -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card product-card" data-id="vali1" data-name="Vali kéo Modus" data-price="10200000" data-img="../img/vali1.jpg">
+                    <img src="../img/vali1.jpg" class="card-img-top" alt="Vali kéo Modus">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="sanpham_vali_1.html">Vali kéo Modus</a></h5>
+                        <p class="card-text price">10.200.000 VNĐ</p>
+                        <button class="btn btn-primary add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 (Suitcase 2): Vali kéo Octolite Neo -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card product-card" data-id="vali2" data-name="Vali kéo Octolite Neo" data-price="5859000" data-img="../img/vali2.jpg">
+                    <img src="../img/vali2.jpg" class="card-img-top" alt="Vali kéo Octolite Neo">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="sanpham_vali_2.html">Vali kéo Octolite Neo</a></h5>
+                        <p class="card-text price">5.859.000 VNĐ</p>
+                        <button class="btn btn-primary add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Max 2 products per category page -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        fetch('_partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                document.querySelector('header .nav-link[href="vali.html"]').classList.add('active');
+                updateCartCount();
+            });
+        fetch('_partials/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+
+</html>

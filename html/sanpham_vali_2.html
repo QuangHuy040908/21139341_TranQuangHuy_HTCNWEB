@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vali kéo Octolite Neo - Aalis</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../img/vali2.jpg" alt="Vali kéo Octolite Neo Chi Tiết" class="img-fluid product-detail-img">
+            </div>
+            <div class="col-md-6">
+                <div class="product-detail-info" data-id="vali2" data-name="Vali kéo Octolite Neo" data-price="5859000" data-img="../img/vali2.jpg">
+                    <h2>Vali kéo Octolite Neo</h2>
+                    <p class="price">5.859.000 VNĐ</p>
+                    <p class="description">
+                        <strong>Mô tả sản phẩm:</strong><br> Vali kéo Octolite Neo được thiết kế tối ưu để mang đến không gian chứa đồ tối đa, giúp bạn đóng gói linh hoạt và tận dụng tối đa sức chứa trong mỗi chuyến đi. Hệ thống sắp xếp thông minh đảm
+                        bảo hành lý luôn gọn gàng, dễ kiểm soát. Sản phẩm được chế tác từ chất liệu polypropylene bền bỉ, mang lại độ bền cao và khả năng chống va đập vượt trội. Không chỉ mạnh mẽ về tính năng, Octolite Neo còn sở hữu thiết kế tối giản,
+                        hiện đại, kết hợp giữa bề mặt nhám sang trọng và điểm nhấn bóng bẩy, giúp bạn tận hưởng trải nghiệm du lịch trọn vẹn nhất.
+                    </p>
+                    <p><strong>Tính năng nổi bật:</strong></p>
+                    <ul>
+                        <li>Khóa số TSA an toàn tiêu chuẩn Hoa Kỳ</li>
+                        <li>Khóa kéo bảo mật chống trộm</li>
+                        <li>Khả năng mở rộng tăng thêm không gian chứa hành lý</li>
+                        <li>Vách ngăn với ngăn có khóa kéo</li>
+                        <li>Đai chéo giữ cố định hành lý</li>
+                        <li>Tính năng khóa dây đai Smart Fix Buckle™ tiện lợi</li>
+                        <li>Hệ thống 4 bánh xe đôi xoay 360 vận hành linh hoạt, êm nhẹ</li>
+                        <li>Cần đẩy ống đôi bền chắc, dễ dàng thay đổi độ cao</li>
+                    </ul>
+                    <button class="btn btn-primary btn-lg add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+        <!-- Optional: Related products section -->
+        <hr class="my-5">
+        <h3 class="text-center mb-4">Sản phẩm liên quan</h3>
+        <div class="row justify-content-center">
+            <!-- Center related item -->
+            <!-- Vali kéo Modus Card -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card product-card" data-id="vali1" data-name="Vali kéo Modus" data-price="10200000" data-img="../img/vali1.jpg">
+                    <img src="../img/vali1.jpg" class="card-img-top" alt="Vali kéo Modus">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="sanpham_vali_1.html">Vali kéo Modus</a></h5>
+                        <p class="card-text price">10.200.000 VNĐ</p>
+                        <button class="btn btn-primary add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        fetch('_partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                updateCartCount();
+            });
+        fetch('_partials/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Aalis</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Đăng nhập tài khoản</h2>
+            <form id="login-form">
+                <div class="mb-3">
+                    <label for="login-username" class="form-label">Tên đăng nhập</label>
+                    <input type="text" class="form-control" id="login-username" placeholder="Nhập tên đăng nhập" required>
+                </div>
+                <div class="mb-3">
+                    <label for="login-password" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" id="login-password" placeholder="Nhập mật khẩu" required>
+                </div>
+                <div class="alert alert-danger d-none" id="login-error" role="alert">
+                    Tên đăng nhập hoặc mật khẩu không đúng.
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                <div class="text-center mt-3">
+                    <p>Chưa có tài khoản? <a href="signup.html">Đăng ký ngay</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script> <!-- Include cart.js for cart count update -->
+     <script>
+        // Load Header/Footer
+         fetch('_partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                 document.getElementById('header-placeholder').innerHTML = data;
+                  document.querySelector('header .nav-link[href="login.html"]').classList.add('active');
+                 updateCartCount();
+            });
+         fetch('_partials/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+
+
+        // Login Logic
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const errorDiv = document.getElementById('login-error');
+
+            // Kiểm tra thông tin đăng nhập trong Local Storage
+            const storedPassword = localStorage.getItem('user_' + username); // Prefix key
+
+            if (storedPassword === password) {
+                // Đăng nhập thành công
+                localStorage.setItem('loggedInUser', username); // Store logged-in state
+                window.location.href = 'taikhoan.html'; // Chuyển hướng đến trang tài khoản
+            } else {
+                errorDiv.classList.remove('d-none'); // Show error message
+            }
+        });
+    </script>
+</body>
+</html>

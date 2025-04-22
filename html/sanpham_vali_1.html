@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vali kéo Modus - Aalis</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../img/vali1.jpg" alt="Vali kéo Modus Chi Tiết" class="img-fluid product-detail-img">
+            </div>
+            <div class="col-md-6">
+                <div class="product-detail-info" data-id="vali1" data-name="Vali kéo Modus" data-price="10200000" data-img="../img/vali1.jpg">
+                    <h2>Vali kéo Modus</h2>
+                    <p class="price">10.200.000 VNĐ</p>
+                    <p class="description">
+                        <strong>Mô tả sản phẩm:</strong><br> Vali kéo Modus sở hữu thiết kế tối giản nhưng đầy cuốn hút, với đường nét bất đối xứng độc đáo cùng logo tinh tế tạo điểm nhấn sang trọng. Không chỉ nổi bật về diện mạo, Modus còn mang đến sự
+                        linh hoạt tối ưu, tính năng bảo mật cao cấp và hệ thống sắp xếp thông minh, giúp bạn tận hưởng hành trình một cách trọn vẹn, phong cách. Với sự kết hợp hoàn hảo giữa thẩm mỹ và công năng, Modus chính là người bạn đồng hành lý tưởng
+                        cho những chuyến đi mượt mà và đẳng cấp.
+                    </p>
+                    <p><strong>Tính năng nổi bật:</strong></p>
+                    <ul>
+                        <li>Khóa TSA an toàn tiêu chuẩn Hoa Kỳ</li>
+                        <li>Khóa kéo bảo mật chống trộm</li>
+                        <li>Khả năng mở rộng tăng thêm sức chứa</li>
+                        <li>Đai chéo giữ hành lý cố định</li>
+                        <li>Vách ngăn ở cả 2 mặt vali</li>
+                        <li>Hệ thống 4 bánh xe đôi xoay 360 có vòng bi, vận hành linh hoạt, êm nhẹ</li>
+                        <li>Cần đẩy ống đôi bền chắc, dễ dàng thay đổi độ cao</li>
+                        <li>Tay cầm ở cả trên và bên hông hỗ trợ di chuyển thuận tiện</li>
+                    </ul>
+                    <button class="btn btn-primary btn-lg add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+        <!-- Optional: Related products section -->
+        <hr class="my-5">
+        <h3 class="text-center mb-4">Sản phẩm liên quan</h3>
+        <div class="row justify-content-center">
+            <!-- Center related item -->
+            <!-- Vali kéo Octolite Neo Card -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card product-card" data-id="vali2" data-name="Vali kéo Octolite Neo" data-price="5859000" data-img="../img/vali2.jpg">
+                    <img src="../img/vali2.jpg" class="card-img-top" alt="Vali kéo Octolite Neo">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="sanpham_vali_2.html">Vali kéo Octolite Neo</a></h5>
+                        <p class="card-text price">5.859.000 VNĐ</p>
+                        <button class="btn btn-primary add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        fetch('_partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                updateCartCount();
+            });
+        fetch('_partials/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+
+</html>

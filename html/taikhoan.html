@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản - Aalis</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <div class="container mt-5">
+        <h1 class="page-title">Thông tin tài khoản</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" id="welcome-message">Chào mừng!</h5>
+                <p class="card-text">Đây là trang quản lý tài khoản của bạn.</p>
+
+                <button id="logout-button" class="btn btn-danger mt-3">Đăng xuất</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <!-- Include cart.js for cart count update -->
+    <script>
+        // Load Header/Footer
+        fetch('_partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                updateCartCount();
+            });
+        fetch('_partials/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+
+        const loggedInUser = localStorage.getItem('loggedInUser');
+
+        if (loggedInUser) {
+            document.getElementById('welcome-message').textContent = 'Chào mừng, ' + loggedInUser + '!';
+
+            document.getElementById('logout-button').addEventListener('click', function() {
+                localStorage.removeItem('loggedInUser');
+                alert('Bạn đã đăng xuất.');
+                window.location.href = 'login.html';
+            });
+
+        } else {
+            alert('Vui lòng đăng nhập để xem trang này.');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>

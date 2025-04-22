@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIER SPORT - Aalis</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../img/tui2.jpg" alt="HIER SPORT Chi Tiết" class="img-fluid product-detail-img">
+            </div>
+            <div class="col-md-6">
+                <div class="product-detail-info" data-id="tui2" data-name="HIER SPORT" data-price="490000" data-img="../img/tui2.jpg">
+                    <h2>HIER SPORT</h2>
+                    <p class="price">490.000 VNĐ</p>
+                    <p class="description">
+                        <strong>Mô tả sản phẩm:</strong><br> Túi trống HIER SPORT là giải pháp đa năng hoàn hảo, phù hợp cho mọi hoạt động từ tập gym, chơi thể thao đến các chuyến du lịch ngắn ngày. Sản phẩm được làm từ 100% vải Polyester cao cấp, mang
+                        lại khả năng trượt nước ưu việt và độ bền vượt trội theo thời gian. Với kích thước 53 x 27 x 21 cm và tải trọng lên đến 37kg, túi cung cấp không gian chứa đồ rộng rãi trong ngăn chính, kết hợp cùng nhiều ngăn phụ tiện lợi giúp
+                        bạn dễ dàng sắp xếp vật dụng cá nhân. Màu đen cá tính, thiết kế năng động cùng trọng lượng nhẹ chỉ 0.8kg, HIER SPORT kết hợp hoàn hảo giữa phong cách thể thao khỏe khoắn và tính ứng dụng cao, sẵn sàng đồng hành cùng bạn trên mọi
+                        nẻo đường.
+                    </p>
+                    <p><strong>Chất Liệu:</strong> 100% vải Polyester trượt nước cao cấp</p>
+                    <p><strong>Số Ngăn:</strong> 1 ngăn chính - nhiều ngăn phụ</p>
+                    <p><strong>Màu sắc:</strong> Black</p>
+                    <p><strong>Kích Thước (DàixRộngxCao):</strong> 53 x 27 x 21 cm</p>
+                    <p><strong>Khối Lượng:</strong> 0.8 Kg</p>
+                    <p><strong>Tải Trọng:</strong> 37 Kg</p>
+                    <button class="btn btn-primary btn-lg add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+        <!-- Optional: Related products section -->
+        <hr class="my-5">
+        <h3 class="text-center mb-4">Sản phẩm liên quan</h3>
+        <div class="row justify-content-center">
+            <!-- Center related item -->
+            <!-- KINGBAG SKY Card -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card product-card" data-id="tui1" data-name="KINGBAG SKY" data-price="390000" data-img="../img/tui1.jpg">
+                    <img src="../img/tui1.jpg" class="card-img-top" alt="KINGBAG SKY">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="sanpham_tui_1.html">KINGBAG SKY</a></h5>
+                        <p class="card-text price">390.000 VNĐ</p>
+                        <button class="btn btn-primary add-to-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        fetch('_partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                updateCartCount();
+            });
+        fetch('_partials/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+
+</html>

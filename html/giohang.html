@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng - Aalis</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <div class="container mt-5">
+        <h1 class="page-title">Giỏ hàng của bạn</h1>
+
+        <!-- Cart Items Section -->
+        <div id="cart-section">
+             <div id="empty-cart-message" class="alert alert-info d-none" role="alert">
+                Giỏ hàng của bạn đang trống. <a href="home.html" class="alert-link">Tiếp tục mua sắm</a>!
+            </div>
+            <table class="table table-hover align-middle cart-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Sản phẩm</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Tổng cộng</th>
+                        <th scope="col">Xóa</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be loaded here by JS -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end fw-bold">Tổng tiền:</td>
+                        <td colspan="2" class="fw-bold fs-5" id="cart-total">0 VNĐ</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- Checkout Form Section -->
+        <div id="checkout-form-section" class="mt-5">
+            <h2 class="mb-4">Thông tin nhận hàng</h2>
+            <form id="checkout-form">
+                <div class="mb-3">
+                    <label for="customer-name" class="form-label">Họ và Tên <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="customer-name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="customer-address" class="form-label">Địa chỉ nhận hàng <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="customer-address" required>
+                </div>
+                <div class="mb-3">
+                    <label for="customer-phone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                    <input type="tel" class="form-control" id="customer-phone" required>
+                </div>
+                 <div class="mb-3">
+                    <label for="customer-notes" class="form-label">Ghi chú (tùy chọn)</label>
+                    <textarea class="form-control" id="customer-notes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success btn-lg w-100">Thanh toán</button>
+            </form>
+        </div>
+
+        <!-- Invoice Section (Initially Hidden) -->
+        <div id="invoice-section" class="d-none mt-5">
+            <h2 class="text-center">HÓA ĐƠN THANH TOÁN</h2>
+            <hr>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Khách hàng:</strong> <span id="invoice-customer-name"></span></p>
+                    <p><strong>Địa chỉ:</strong> <span id="invoice-customer-address"></span></p>
+                    <p><strong>Điện thoại:</strong> <span id="invoice-customer-phone"></span></p>
+                     <p class="d-none"><strong>Ghi chú:</strong> <span id="invoice-notes"></span></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p><strong>Ngày đặt hàng:</strong> <span id="invoice-date"></span></p>
+                    <p><strong>Mã hóa đơn:</strong> [Tạo mã tự động nếu cần]</p>
+                </div>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody id="invoice-items">
+                    <!-- Invoice items loaded by JS -->
+                </tbody>
+            </table>
+            <hr>
+            <div class="text-end">
+                <h4>Tổng cộng: <span id="invoice-total" class="text-danger fw-bold"></span></h4>
+            </div>
+             <div class="alert alert-success mt-4 text-center" role="alert">
+                Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại Aalis. Chúng tôi sẽ liên hệ xác nhận đơn hàng sớm nhất.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        fetch('_partials/header.html')
+            .then(response => response.text())
+            .then(data => {
+                 document.getElementById('header-placeholder').innerHTML = data;
+                 document.querySelector('header .nav-link[href="giohang.html"]').classList.add('active');
+                 updateCartCount();
+            });
+         fetch('_partials/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+</html>
